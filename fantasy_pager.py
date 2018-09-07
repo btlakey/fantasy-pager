@@ -188,7 +188,7 @@ def login_espn(driver, url=search_url):
     username = driver.find_element(By.XPATH, '//*[@id="did-ui"]/div/div/section/section/form/section/div[1]/div/label/span[2]/input')
     username.send_keys('commanderkeeen')
     password = driver.find_element(By.XPATH, '//*[@id="did-ui"]/div/div/section/section/form/section/div[2]/div/label/span[2]/input')
-    password.send_keys(read_encrypted('fantasea', os.path.expanduser('~/fantasea.txt')))
+    password.send_keys(read_encrypted('fantasea', 'fantasea.txt'))
     password.send_keys(Keys.ENTER)    
 
 

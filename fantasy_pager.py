@@ -20,6 +20,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from simplecrypt import decrypt
 
+os.setwd('/home/ubuntu/repos/fantasy-pager')
 
 ## define variables
 
@@ -74,7 +75,9 @@ def find_drops(url=transactions_url_day, target='dropped'):
         if drop_list[i][-1] == '*':
             drop_list[i] = drop_list[i][:-1]
 
+    # debug
     [print(p) for p in drop_list]
+
     return drop_list
 
 
@@ -311,14 +314,15 @@ def main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to
         except:
             pass
 
+    # debug
     [print(p) for p in players]
 
     # identify which to send emails about
-    players_email = [x for x in players if x['send_email']]  
+    players_email = [x for x in players if x['send_email']]
 
     # find players in last email
     try:
-        with open(os.path.expanduser('~/repos/fantasy-pager/fantasy_players.txt'), 'r') as file_in:
+        with open('fantasy_players.txt', 'r') as file_in:
             players_email_last  = eval(file_in.read())
     except: players_email_last = []
 
@@ -342,7 +346,7 @@ def main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to
         send_email(msg)
 
     # persist email contents
-    with open(os.path.expanduser('~/repos/fantasy-pager/fantasy_players.txt'), 'w') as file_out:
+    with open('fantasy_players.txt', 'w') as file_out:
         file_out.write(str(players_final))
 
 

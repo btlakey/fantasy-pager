@@ -20,7 +20,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from simplecrypt import decrypt
 
-os.setwd('/home/ubuntu/repos/fantasy-pager')
+os.chdir('/home/ubuntu/repos/fantasy-pager')
 
 ## define variables
 
@@ -31,7 +31,7 @@ if os.getcwd() == '/home/ubuntu':
     yesterday = (date.today()-timedelta(days=1, hours=6)).strftime('%Y%m%d')
 else:
     today = date.today().strftime('%Y%m%d')
-    yesterday = (date.today()-timedelta(days=1)).strftime('%Y%m%d')    
+    yesterday = (date.today()-timedelta(days=1)).strftime('%Y%m%d')
 
 # urls for add/drops
 transactions_url = 'http://games.espn.com/ffl/recentactivity?leagueId=973912'
@@ -322,7 +322,7 @@ def main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to
 
     # find players in last email
     try:
-        with open('fantasy_players.txt', 'r') as file_in:
+        with open('players.txt', 'r') as file_in:
             players_email_last  = eval(file_in.read())
     except: players_email_last = []
 
@@ -346,7 +346,7 @@ def main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to
         send_email(msg)
 
     # persist email contents
-    with open('fantasy_players.txt', 'w') as file_out:
+    with open('players.txt', 'w') as file_out:
         file_out.write(str(players_final))
 
 

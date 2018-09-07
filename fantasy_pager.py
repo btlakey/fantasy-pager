@@ -34,9 +34,9 @@ else:
 
 # urls for add/drops
 transactions_url = 'http://games.espn.com/ffl/recentactivity?leagueId=973912'
-transactions_url_day = 'http://games.espn.com/ffl/recentactivity?leagueId=973912&seasonId=2017&activityType=-1&startDate=%s&endDate=%s&teamId=-1&tranType=-2' % (yesterday, today)
-transactions_url_days = 'http://games.espn.com/ffl/recentactivity?leagueId=973912&seasonId=2017&activityType=-1&startDate=%s&teamId=-1&tranType=-2' % (date.today()-timedelta(days=3, hours=6)).strftime('%Y%m%d')
-search_url = 'http://games.espn.com/ffl/freeagency?leagueId=973912&teamId=1&seasonId=2017'
+transactions_url_day = 'http://games.espn.com/ffl/recentactivity?leagueId=973912&seasonId=2018&activityType=-1&startDate=%s&endDate=%s&teamId=-1&tranType=-2' % (yesterday, today)
+transactions_url_days = 'http://games.espn.com/ffl/recentactivity?leagueId=973912&seasonId=2018&activityType=-1&startDate=%s&teamId=-1&tranType=-2' % (date.today()-timedelta(days=3, hours=6)).strftime('%Y%m%d')
+search_url = 'http://games.espn.com/ffl/freeagency?leagueId=973912&teamId=1&seasonId=2018'
 
 
 ## define functions

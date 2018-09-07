@@ -351,4 +351,4 @@ if __name__ == '__main__':
     prjctn_thresh = 10.
     own_thresh = 33.3
 
-    main(prjctn_thresh, own_thresh, url=transactions_url_days, watchlist=True, to='brianlakey@gmail.com')
+    main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to='brianlakey@gmail.com')

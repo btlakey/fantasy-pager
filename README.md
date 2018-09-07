@@ -20,8 +20,8 @@ bash Miniconda3-latest-Linux-x86_64.sh
 #### set alias to python3
 ```
 sudo nano ~/.bashrc
+  alias python="/home/ubuntu/miniconda3/bin/python"
 ```
-`alias python="/home/ubuntu/miniconda3/bin/python"`
 ```
 source ~/.bashrc
 ```
@@ -60,8 +60,8 @@ scp -i ~/.ssh/fantasypager.pem ~/fantasea.txt ubuntu@ec2-34-201-127-136.compute-
 #### schedule crontab (every 20 mins)
 ```
 sudo nano /etc/crontab
+  */20 * * * * ubuntu /home/ubuntu/miniconda3/bin/python fantasy_pager.py
 ```
-`*/20 * * * * ubuntu /home/ubuntu/miniconda3/bin/python fantasy_pager.py`
 
 #### install chrome driver (mac link)
 ```

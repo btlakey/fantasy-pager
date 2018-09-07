@@ -67,3 +67,11 @@ sudo nano /etc/crontab
 ```
 wget https://chromedriver.storage.googleapis.com/2.33/chromedriver_mac64.zip
 ```
+
+
+### sample urls
+
+transactions_url: http://games.espn.com/ffl/recentactivity?leagueId=973912
+transactions_url_day: http://games.espn.com/ffl/recentactivity?leagueId=973912&seasonId=2017&activityType=-1&startDate=20180906&endDate=20180907&teamId=-1&tranType=-2
+transactions_url_days: http://games.espn.com/ffl/recentactivity?leagueId=973912&seasonId=2017&activityType=-1&startDate=20180904&teamId=-1&tranType=-2
+search_url: http://games.espn.com/ffl/freeagency?leagueId=973912&teamId=1&seasonId=2017

@@ -349,6 +349,6 @@ def main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to
 if __name__ == '__main__':
 
     prjctn_thresh = 10.
-    own_thresh = 33.3
+    own_thresh = 20.
 
     main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to='brianlakey@gmail.com')

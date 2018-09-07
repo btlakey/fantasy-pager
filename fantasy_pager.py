@@ -311,12 +311,14 @@ def main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to
         except:
             pass
 
+    [print(p) for p in players]
+
     # identify which to send emails about
     players_email = [x for x in players if x['send_email']]  
 
     # find players in last email
     try:
-        with open(os.path.expanduser('~/fantasy_players.txt'), 'r') as file_in:
+        with open(os.path.expanduser('~/repos/fantasy-pager/fantasy_players.txt'), 'r') as file_in:
             players_email_last  = eval(file_in.read())
     except: players_email_last = []
 
@@ -340,7 +342,7 @@ def main(prjctn_thresh, own_thresh, url=transactions_url_day, watchlist=True, to
         send_email(msg)
 
     # persist email contents
-    with open(os.path.expanduser('~/fantasy_players.txt'), 'w') as file_out:
+    with open(os.path.expanduser('~/repos/fantasy-pager/fantasy_players.txt'), 'w') as file_out:
         file_out.write(str(players_final))
 
 

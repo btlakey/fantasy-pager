@@ -68,6 +68,13 @@ sudo nano /etc/crontab
 wget https://chromedriver.storage.googleapis.com/2.33/chromedriver_mac64.zip
 ```
 
+#### instal mail client
+```
+sudo apt install aptitude
+sudo aptitude install postfix
+```
+- select "Local Only" during setup, accept defaults
+
 #### make sure you allowed access to google accounts
 https://support.google.com/accounts/answer/6010255?authuser=2&p=lsa_blocked&hl=en&authuser=2&visit_id=636718867648495172-3778857106&rd=1
 

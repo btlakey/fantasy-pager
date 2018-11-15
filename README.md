@@ -4,7 +4,7 @@ Service to email recipients about potential new free agents on the waiver wire (
 
 ## setup
 
-### create free AWS EC2 ubuntu system
+#### create free AWS EC2 ubuntu system
 https://aws.amazon.com/free/
 
 #### ssh using pem key you created to EC2 address

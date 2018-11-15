@@ -4,9 +4,10 @@ Service to email recipients about potential new free agents on the waiver wire (
 
 ## setup
 
-### create ubuntu system
+### create free AWS EC2 ubuntu system
+https://aws.amazon.com/free/
 
-#### ssh using pem key you created
+#### ssh using pem key you created to EC2 address
 ```
 ssh -i ~/.ssh/fantasypager.pem ubuntu@ec2-34-201-127-136.compute-1.amazonaws.com
 ```
@@ -17,7 +18,7 @@ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-#### set alias to python3
+#### set alias to python3 (if not default)
 ```
 sudo nano ~/.bashrc
   alias python="/home/ubuntu/miniconda3/bin/python"
@@ -57,10 +58,10 @@ scp -i ~/.ssh/fantasypager.pem ~/Documents/fantasy_pager.py ubuntu@ec2-34-201-12
 scp -i ~/.ssh/fantasypager.pem ~/fantasea.txt ubuntu@ec2-34-201-127-136.compute-1.amazonaws.com:~
 ```
 
-#### schedule crontab (every 20 mins)
+#### schedule crontab (every 60 mins) to run script
 ```
 sudo nano /etc/crontab
-  */20 * * * * ubuntu /home/ubuntu/miniconda3/bin/python fantasy_pager.py
+  */60 * * * * ubuntu /home/ubuntu/miniconda3/bin/python fantasy_pager.py
 ```
 
 #### install chrome driver (mac link)
@@ -77,6 +78,24 @@ sudo aptitude install postfix
 
 #### make sure you allowed access to google accounts
 https://support.google.com/accounts/answer/6010255?authuser=2&p=lsa_blocked&hl=en&authuser=2&visit_id=636718867648495172-3778857106&rd=1
+
+#### set up credentials.py locally with encrypted usr/pwd
+##### this enables `read_encrypted()` in `fantasy_pager.py`
+```python
+import os
+from simplecrypt import encrypt, decrypt
+
+passphrase = 'fantasea'
+filename = 'fantasea.txt'
+password = 'your_password'
+
+def write_encrypted(passphrase, filename, plaintext):
+    with open(filename, 'wb') as output:
+        ciphertext = encrypt(passphrase, plaintext)
+        output.write(ciphertext)
+
+data = write_encrypted(passphrase, filename, password) 
+```
 
 ### sample urls
 
